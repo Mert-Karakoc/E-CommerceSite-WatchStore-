@@ -1,0 +1,43 @@
+﻿@using PagedList
+@using PagedList.Mvc
+@using SaatSatış.Controllers
+@model PagedList.IPagedList<SaatSatış.Models.WatchVM>
+
+@{
+    ViewBag.Title = "FilteredWatches";
+    Layout = "~/Views/Shared/FrontLayout.cshtml";
+}
+
+<div class="row">
+    <div class="col-md-2">
+        @{Html.RenderAction("Filters", "Front");
+        }
+    </div>
+
+    <div class="col-md-10">
+        <div class="urunler">
+            @foreach (var item in Model)
+            {
+                <div class="card" id="orta">
+                    <a href="~/Front/WatchDetail?watchId=@item.Watch.WatchID">
+                        <img src="~/Images/ThumbNails/@item.Pictures.ElementAt(0).PictureName" class="card-img-top" class="img-rounded" alt="...">
+                    </a>
+                    <div class="card-body">
+                        <h5 class="card-title">@item.Watch.Brand.BrandName</h5>
+                        <p class="card-text">@item.Watch.WatchModel.ToString()</p>
+                        <p class="card-text">@item.Watch.Gender.GenderName</p>
+                        <h5 class="card-title">@item.Watch.Price TL</h5>
+                        <a id="dd" href="/Front/AddCart?watchId=@item.Watch.WatchID" class="btn btn-primary">SEPETE EKLE</a>
+                    </div>
+                    <br />
+                </div>
+            }
+        </div>
+    </div>
+    @using (Html.BeginForm("FilteredWatches", "Front", FormMethod.Get, new { name = "theForm" }))
+    {
+        <div class="container" style="text-align:center">
+            @Html.PagedListPager(Model, page => Url.Action("FilteredWatches", "Front", new { page, FrontController.FilteredList}))
+        </div>
+    }
+</div>

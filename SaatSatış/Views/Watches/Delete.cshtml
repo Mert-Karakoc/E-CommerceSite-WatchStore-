@@ -1,0 +1,97 @@
+﻿@model Models.Watch
+
+@{
+    ViewBag.Title = "Delete";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Sil</h2>
+
+<h3>Silmek istediğinize emin misiniz?</h3>
+<div>
+    <h4>Saat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Brand.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Brand.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.CaseShape.CaseShapeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.CaseShape.CaseShapeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Color.ColorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Color.ColorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Gender.GenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Gender.GenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.GlassType.GlassTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlassType.GlassTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.StrapType.StrapTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.StrapType.StrapTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Technology.TechnologyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Technology.TechnologyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.WatchModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.WatchModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Price)
+        </dd>
+
+    </dl>
+
+    @using (Html.BeginForm()) {
+        @Html.AntiForgeryToken()
+
+        <div class="form-actions no-color">
+            <input type="submit" value="Sil" class="btn btn-default" /> |
+            @Html.ActionLink("Listeye Dön", "Index")
+        </div>
+    }
+</div>

@@ -1,0 +1,82 @@
+﻿@model IEnumerable<Models.Watch>
+
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Index</h2>
+
+<p>
+    @Html.ActionLink("Create New", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Brand.BrandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.CaseShape.CaseShapeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Color.ColorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Gender.GenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.GlassType.GlassTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.StrapType.StrapTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Technology.TechnologyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.WatchModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Price)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.Brand.BrandName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaseShape.CaseShapeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Color.ColorName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Gender.GenderName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.GlassType.GlassTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.StrapType.StrapTypeName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Technology.TechnologyName)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.WatchModel)
+        </td>
+        <td>
+            @Html.DisplayFor(modelItem => item.Price)
+        </td>
+        <td>
+            @Html.ActionLink("Edit", "Edit", new { id=item.WatchID }) |
+            @Html.ActionLink("Details", "Details", new { id=item.WatchID }) |
+            @Html.ActionLink("Delete", "Delete", new { id=item.WatchID })
+        </td>
+    </tr>
+}
+
+</table>

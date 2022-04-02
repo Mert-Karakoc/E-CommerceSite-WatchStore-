@@ -1,0 +1,171 @@
+﻿@using System.Web.Mvc;
+@using SaatSatış.Models
+
+<script>
+
+    function Write(ch) {        
+        if (ch.checked)
+            sessionStorage.setItem(ch.id, true);
+        else
+            sessionStorage.removeItem(ch.id);
+    }
+
+    function Fill() {
+        let checkBoxes = document.getElementsByClassName("chkbx");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            if (sessionStorage.getItem(checkBoxes[i].id) == "true")
+                checkBoxes[i].checked = true;
+        }
+    }
+    function Clear() {
+        let checkBoxes = document.getElementsByClassName("chkbx");
+        for (var i = 0; i < checkBoxes.length; i++) {
+            checkBoxes[i].checked = false;
+        }
+    }
+</script>
+
+
+@using (Html.BeginForm("FilteredWatches", "Front", FormMethod.Post,new {name="theForm"}))
+{
+    <input type="button" onclick="Clear()" value="Filtreleri Temizle"/>
+    <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse1">
+                        CİNSİYET
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse1" class="panel-collapse collapse in">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).Genders)
+                    {
+                        <input type="checkbox" name="gender" value="@item.GenderID" id="@item.GenderName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.GenderName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" id="post"/>
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse2">
+                        MARKA
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse2" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).Brands)
+                    {
+                        <input type="checkbox" name="brand" value="@item.BrandID" id="@item.BrandName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.BrandName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse3">
+                        RENK
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse3" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).Colors)
+                    {
+                        <input type="checkbox" name="color" value="@item.ColorID" id="@item.ColorName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.ColorName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse4">
+                        KASA ŞEKLİ
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse4" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).CaseShapes)
+                    {
+                        <input type="checkbox" name="caseShape" value="@item.CaseShapeID" id="@item.CaseShapeName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.CaseShapeName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse5">
+                        KAYIŞ TİPİ
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse5" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).StrapTypes)
+                    {
+                        <input type="checkbox" name="strapType" value="@item.StrapTypeID" id="@item.StrapTypeName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.StrapTypeName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse6">
+                        CAM TÜRÜ
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse6" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).GlassTypes)
+                    {
+                        <input type="checkbox" name="glassType" value="@item.GlassTypeID" id="@item.GlassTypeName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.GlassTypeName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+        <div class="panel panel-default">
+            <div class="panel-heading">
+                <h4 class="panel-title">
+                    <a data-toggle="collapse" data-parent="#accordion" href="#collapse7">
+                        TEKNOLOJİ
+                    </a>
+                </h4>
+            </div>
+            <div id="collapse7" class="panel-collapse collapse">
+                <div class="panel-body">
+                    @foreach (var item in ((LayoutVM)ViewBag.Filters).Technologies)
+                    {
+                        <input type="checkbox" name="technology" value="@item.TechnologyID" id="@item.TechnologyName" class="chkbx" onclick="Write(this)" />
+                        <label>@item.TechnologyName</label><br />
+                    }
+                    <input type="submit" value="Filtrele" />
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        Fill()
+    </script>
+}
+

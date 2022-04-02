@@ -1,0 +1,62 @@
+﻿@model SaatSatış.Models.WatchVM
+@{
+    ViewBag.Title = "WatchDetail";
+    Layout = "~/Views/Shared/FrontLayout.cshtml";
+}
+<link href="~/Content/Details.css" rel="stylesheet" type="text/css" />
+<div class="container">
+    <!-- product -->
+    <div class="product-content product-wrap clearfix product-deatil">
+        <div class="row">
+            <div class="col-md-5 col-sm-12 col-xs-12">
+                <div class="product-image">
+                    <div id="myCarousel-2" class="carousel slide">
+                        <ol class="carousel-indicators">
+                            <li data-target="#myCarousel-2" data-slide-to="0" class=""></li>
+                            <li data-target="#myCarousel-2" data-slide-to="1" class="active"></li>
+                            <li data-target="#myCarousel-2" data-slide-to="2" class=""></li>
+                        </ol>
+                        <div class="carousel-inner">
+                            <!-- Slide 1 -->
+                            <div class="item active">
+                                <img src="~/Images/@Model.Pictures.ElementAt(0).PictureName" class="img-responsive" alt="" />
+                            </div>
+                            <!-- Slide 2 -->
+                            <div class="item">
+                                <img src="~/Images/@Model.Pictures.ElementAt(1).PictureName" class="img-responsive" alt="" />
+                            </div>
+                            <!-- Slide 3 -->
+                            <div class="item">
+                                <img src="~/Images/@Model.Pictures.ElementAt(2).PictureName" class="img-responsive" alt="" />
+                            </div>
+                        </div>
+                        <a class="left carousel-control" href="#myCarousel-2" data-slide="prev"> <span class="glyphicon glyphicon-chevron-left"></span> </a>
+                        <a class="right carousel-control" href="#myCarousel-2" data-slide="next"> <span class="glyphicon glyphicon-chevron-right"></span> </a>
+                    </div>
+                </div>
+            </div>
+
+            <div class="col-md-6 col-md-offset-1 col-sm-12 col-xs-12">
+                <h2 class="name">
+                    @Model.Watch.Brand.BrandName
+                </h2>
+                <h3 class="name">
+                    @Model.Watch.WatchModel
+                </h3>
+                <a href="/Front/Search?search=@Model.Watch.Gender.GenderName">@Model.Watch.Gender.GenderName</a> / <a href="/Front/Search?search=@Model.Watch.CaseShape.CaseShapeName">@Model.Watch.CaseShape.CaseShapeName</a> / <a href="/Front/Search?search=@Model.Watch.Color.ColorName">@Model.Watch.Color.ColorName</a> / <a href="/Front/Search?search=@Model.Watch.GlassType.GlassTypeName">@Model.Watch.GlassType.GlassTypeName</a> / <a href="/Front/Search?search=@Model.Watch.StrapType.StrapTypeName">@Model.Watch.StrapType.StrapTypeName</a> / <a href="/Front/Search?search=@Model.Watch.Technology.TechnologyName">@Model.Watch.Technology.TechnologyName</a>
+                <hr />
+                <h3 class="price-container">
+                    @Model.Watch.Price TL
+                </h3>
+
+                <div class="row">
+                    <div class="col-sm-12 col-md-6 col-lg-6">
+                        <a href="/Front/AddCart?watchId=@Model.Watch.WatchID" class="btn btn-success btn-lg">Sepete Ekle (@Model.Watch.Price TL)</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!-- end product -->
+</div>
+

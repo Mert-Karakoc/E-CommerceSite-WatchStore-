@@ -1,0 +1,85 @@
+﻿@model IEnumerable<SaatSatış.Models.WatchVM>
+
+@{
+    ViewBag.Title = "Saatler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Saatler</h2>
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Brand.BrandName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.CaseShape.CaseShapeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Color.ColorName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Gender.GenderName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.GlassType.GlassTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.StrapType.StrapTypeName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Technology.TechnologyName)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.WatchModel)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Price)
+        </th>
+        <th>Resim</th>
+        <th>İşlemler</th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.Brand.BrandName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.CaseShape.CaseShapeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.Color.ColorName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.Gender.GenderName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.GlassType.GlassTypeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.StrapType.StrapTypeName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.Technology.TechnologyName)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.WatchModel)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.Price)
+    </td>
+    <td>
+        <img src="~/Images/ThumbNails/@item.Pictures.ElementAt(0).PictureName" />
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.Watch.WatchID }) <br />
+        @Html.ActionLink("Detaylar", "Details", new { id = item.Watch.WatchID }) <br />
+        @Html.ActionLink("Sil", "Delete", new { id = item.Watch.WatchID })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,27 @@
+﻿@model Models.GlassType
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Cam Tipi</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.GlassTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.GlassTypeName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.GlassTypeID }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>

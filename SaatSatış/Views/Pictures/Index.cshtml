@@ -1,0 +1,43 @@
+﻿@model IEnumerable<Models.Picture>
+
+@{
+    ViewBag.Title = "Resimler";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Resimler</h2>
+
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.Pictures)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.Watch.WatchID)
+        </th>
+        <th>
+            @Html.DisplayNameFor(model => model.PictureName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+<tr>
+    <td>
+        <img src="~/Images/ThumbNails/@item.PictureName" />
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.Watch.WatchID)
+    </td>
+    <td>
+        @Html.DisplayFor(modelItem => item.PictureName)
+    </td>
+    <td>
+        @Html.ActionLink("Düzenle", "Edit", new { id = item.PictureID }) |
+        @Html.ActionLink("Detay", "Details", new { id = item.PictureID }) |
+        @Html.ActionLink("Sil", "Delete", new { id = item.PictureID })
+    </td>
+</tr>
+}
+
+</table>

@@ -1,0 +1,99 @@
+﻿@model SaatSatış.Models.WatchVM
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Saat</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.Brand.BrandName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.Brand.BrandName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.CaseShape.CaseShapeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.CaseShape.CaseShapeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.Color.ColorName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.Color.ColorName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.Gender.GenderName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.Gender.GenderName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.GlassType.GlassTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.GlassType.GlassTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.StrapType.StrapTypeName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.StrapType.StrapTypeName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.Technology.TechnologyName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.Technology.TechnologyName)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.WatchModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.WatchModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.Price)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.Price)
+        </dd>
+        <dt>
+            @Html.DisplayNameFor(model => model.Pictures)
+        </dt>
+        <dd>
+            <img src="~/Images/ThumbNails/@Model.Pictures.ElementAt(0).PictureName" />
+            <img src="~/Images/ThumbNails/@Model.Pictures.ElementAt(1).PictureName" />
+            <img src="~/Images/ThumbNails/@Model.Pictures.ElementAt(2).PictureName" />
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.Watch.WatchID }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>

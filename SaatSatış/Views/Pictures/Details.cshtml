@@ -1,0 +1,35 @@
+﻿@model Models.Picture
+
+@{
+    ViewBag.Title = "Details";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Detaylar</h2>
+
+<div>
+    <h4>Resim</h4>
+    <hr />
+    <dl class="dl-horizontal">
+        <dt>
+            @Html.DisplayNameFor(model => model.Watch.WatchModel)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.Watch.WatchModel)
+        </dd>
+
+        <dt>
+            @Html.DisplayNameFor(model => model.PictureName)
+        </dt>
+
+        <dd>
+            @Html.DisplayFor(model => model.PictureName)
+        </dd>
+
+    </dl>
+</div>
+<p>
+    @Html.ActionLink("Düzenle", "Edit", new { id = Model.PictureID }) |
+    @Html.ActionLink("Listeye Dön", "Index")
+</p>

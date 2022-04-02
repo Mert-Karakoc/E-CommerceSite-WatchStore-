@@ -1,0 +1,42 @@
+﻿@model IEnumerable<Models.Cart>
+@{
+    ViewBag.Title = "Cart";
+    Layout = "~/Views/Shared/FrontLayout.cshtml";
+}
+
+<h2>Sepetim</h2>
+
+<table class="table">
+    <tr>
+        <th>Resim</th>
+        <th>Marka</th>
+        <th>Model</th>
+        <th>Adet</th>
+        <th>Fiyat</th>
+    </tr>
+    @foreach (var cart in Model)
+    {
+        <tr>
+            <td><img src="~/Images/ThumbNails/@cart.Watch.Pictures.ElementAt(0).PictureName" /></td>
+            <td>@cart.Watch.Brand.BrandName</td>
+            <td>@cart.Watch.WatchModel</td>
+            <td>@cart.Number</td>
+            <td>@cart.Watch.Price</td>
+            <td><a href="/Front/RemoveCart?watchId=@cart.WatchID">Çıkar</a></td>
+        </tr>
+    }
+    <tr>
+        <td><a href="/Front/Index">Alışverişe Devam Et</a></td>
+        <td></td>
+        <td></td>
+        <td>Toplam Fiyat</td>
+        <td>@ViewBag.SumPrice TL</td>
+    </tr>
+    <tr>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td></td>
+        <td><a href="/Front/Purchase?userId=@Session["UserID"]" class="btn-primary">Alışverişi Tamamla</a></td>
+    </tr>
+</table>

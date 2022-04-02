@@ -1,0 +1,82 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+    <link href="~/Content/Site1.css" rel="stylesheet" type="text/css" />
+</head>
+<body>
+    <div data-spy="affix" data-offset-top="-60" style="z-index:1; width:100%; top:0px;">
+        <nav class="navbar navbar-inverse">
+            <div class="container-fluid">
+                <div class="navbar-header">
+                    <a class="navbar-brand" href="~/Front/Index">Saat</a>
+                </div>
+                <ul class="nav navbar-nav">
+                    <li><a href="/Front/FilteredWatches?gender=Erkek">Erkek</a></li>
+                    <li><a href="/Front/FilteredWatches?gender=Kadın">Kadın</a></li>
+                    <li><a href="/Front/FilteredWatches?gender=Çocuk">Çocuk</a></li>
+
+                </ul>
+                @if (Session["UserID"] == null)
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left" action="~/Front/Search" method="get" autocomplete="off">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search" name="search" placeholder="Arama Yap" value="@ViewData["CurrentFilter"]" />
+                            </div>
+                            <button type="submit" class="btn btn-default">Ara</button>
+                        </form>
+                        <li><a href="/Front/Index" onclick="return ajax()" data-toggle="popover" data-placement="bottom"><span class="glyphicon glyphicon-user"></span>Giriş</a></li>
+                        <li><a href="/LogIn/SignIn"><span class="glyphicon glyphicon-log-in"></span>Kayıt Ol</a></li>
+                    </ul>
+                }
+                else
+                {
+                    <ul class="nav navbar-nav navbar-right">
+                        <form class="navbar-form navbar-left" action="~/Front/Search" method="get">
+                            <div class="form-group">
+                                <input type="text" class="form-control" id="search" name="search" placeholder="Arama Yap">
+                            </div>
+                            <button type="submit" class="btn btn-default">Ara</button>
+                        </form>
+                        <li><a href="/Front/Cart"><span class="glyphicon glyphicon-shopping-cart"></span>Sepet</a></li>
+                        <li><a href="/LogIn/LogOut"><span class="glyphicon glyphicon-log-out"></span>Çıkış</a></li>
+                    </ul>
+                }
+            </div>
+        </nav>
+    </div>
+ 
+    <div class="row">
+        <div class="col-md-1">
+            <br /><br /><br /><br /><br />
+            <a href="/Watches/Index" class="list-group-item list-group-item-action">Saatler</a>
+            <a href="/Brands/Index/" class="list-group-item list-group-item-action">Markalar</a>
+            <a href="/CaseShapes/Index/" class="list-group-item list-group-item-action">Kasa Şekilleri</a>
+            <a href="/GlassTypes/Index/" class="list-group-item list-group-item-action">Cam Tipleri</a>
+            <a href="/StrapTypes/Index/" class="list-group-item list-group-item-action">Kayış Tipleri</a>
+            <a href="/Technologies/Index/" class="list-group-item list-group-item-action">Teknolojiler</a>
+            <a href="/Pictures/Index/" class="list-group-item list-group-item-action">Resimler</a>
+            <a href="/Colors/Index/" class="list-group-item list-group-item-action">Renkler</a>
+            <a href="/Genders/Index/" class="list-group-item list-group-item-action">Cinsiyetler</a>
+            <a href="/Users/Index/" class="list-group-item list-group-item-action">Kullanıcılar</a>
+        </div>
+        <div class="col-md-11">
+            <table id="" class="table table-striped">
+                <div class="container body-content">
+                    @RenderBody()
+                    <hr />
+                </div>
+            </table>
+        </div>
+    </div>
+
+    
+    <script src="~/Scripts/jquery-3.4.1.min.js"></script>
+    <script src="~/Scripts/bootstrap.min.js"></script>
+</body>
+</html>

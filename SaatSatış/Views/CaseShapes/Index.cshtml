@@ -1,0 +1,34 @@
+﻿@model IEnumerable<Models.CaseShape>
+
+@{
+    ViewBag.Title = "Kasa Şekilleri";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<h2>Kasa Şekilleri</h2>
+
+<p>
+    @Html.ActionLink("Yeni Oluştur", "Create")
+</p>
+<table class="table">
+    <tr>
+        <th>
+            @Html.DisplayNameFor(model => model.CaseShapeName)
+        </th>
+        <th></th>
+    </tr>
+
+@foreach (var item in Model) {
+    <tr>
+        <td>
+            @Html.DisplayFor(modelItem => item.CaseShapeName)
+        </td>
+        <td>
+            @Html.ActionLink("Düzenle", "Edit", new { id=item.CaseShapeID }) |
+            @Html.ActionLink("Detaylar", "Details", new { id=item.CaseShapeID }) |
+            @Html.ActionLink("Sil", "Delete", new { id=item.CaseShapeID })
+        </td>
+    </tr>
+}
+
+</table>
