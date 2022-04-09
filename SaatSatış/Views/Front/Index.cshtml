@@ -51,7 +51,14 @@
                     <p class="card-text">@item.Watch.WatchModel.ToString()</p>
                     <p class="card-text">@item.Watch.Gender.GenderName</p>
                     <h5 class="card-title">@item.Watch.Price TL</h5>
-                    <a href="/Front/AddCart?watchId=@item.Watch.WatchID" class="btn btn-primary">SEPETE EKLE</a>
+                    @if (Session["UserID"] == null)
+                    {
+                        <a id="dd" onclick="alert('Giriş Yapmalısınız.')" href="/Front/AddCart?watchId=@item.Watch.WatchID" class="btn btn-primary">SEPETE EKLE</a>
+                    }
+                    else
+                    {
+                        <a id="dd" href="/Front/AddCart?watchId=@item.Watch.WatchID" class="btn btn-primary">SEPETE EKLE</a>
+                    }
                 </div>
             </div>
         }

@@ -96,7 +96,6 @@ namespace SaatSatış.Controllers
             if (Session["UserID"] != null)
             {
                 Cart cartExist = db.Carts.Where(c => c.WatchID == watchId && c.Active == true).SingleOrDefault();
-
                 if (db.Carts.ToList().Contains(cartExist) == true && cartExist.Active == true)
                 {
                     cartExist.Number++;
@@ -116,7 +115,6 @@ namespace SaatSatış.Controllers
             }
             else
             {
-                ViewBag.Message = "Giriş yapmalısınız.";
                 return RedirectToAction("Index");
             }
             return RedirectToAction("Cart");
