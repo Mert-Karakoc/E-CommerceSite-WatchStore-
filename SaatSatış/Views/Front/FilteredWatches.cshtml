@@ -15,7 +15,7 @@
     </div>
 
     <div class="col-md-10">
-        <div class="urunler">
+        <div class="urunlermain">
             @foreach (var item in Model)
             {
                 <div class="card" id="orta">
@@ -44,7 +44,7 @@
     @using (Html.BeginForm("FilteredWatches", "Front", FormMethod.Get, new { name = "theForm" }))
     {
         <div class="container" style="text-align:center">
-            @Html.PagedListPager(Model, page => Url.Action("FilteredWatches", "Front", new { page, FrontController.FilteredList}))
+            @Html.PagedListPager(Model, page => Url.Action("FilteredWatches", "Front", new { page, FrontController.FilteredList, ViewBag.Gender}))
         </div>
     }
 </div>

@@ -44,6 +44,7 @@ namespace SaatSatış.Controllers
             }
             else
             {
+                //if (FilteredList == null) { FilteredList = filters.FilterByGender(gender); }
                 ViewBag.Gender = gender;
                 return View(filters.FilterByGender(gender).ToPagedList(pageNumber, 20));
             }
@@ -123,7 +124,7 @@ namespace SaatSatış.Controllers
         {
             ViewData["CurrentFilter"] = search;
             int pageNumber = (page ?? 1);
-            return View(filters.Search(search).ToPagedList(pageNumber, 2));
+            return View(filters.Search(search).ToPagedList(pageNumber, 20));
         }
         public ActionResult RemoveCart(int watchId)
         {

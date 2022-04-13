@@ -41,7 +41,7 @@ namespace SaatSatış.Controllers
             return PartialView();
         }
         [HttpPost]
-        public ActionResult LogInPartial(string userName, string pass)
+        public ActionResult LogInPartial(string userName, string pass="")
         {
             string password = Md5(pass);
             User user = db.Users.Where(u => u.UserName == userName && u.Password == password).SingleOrDefault();

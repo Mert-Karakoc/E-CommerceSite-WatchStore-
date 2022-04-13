@@ -170,7 +170,7 @@
     <Content Include="Content\Log.css" />
     <Content Include="Content\LogIn.css" />
     <Content Include="Content\PagedList.css" />
-    <Content Include="Content\Site1.css" />
+    <Content Include="Content\Site.css" />
     <Content Include="Global.asax" />
     <Content Include="Scripts\bootstrap.bundle.js" />
     <Content Include="Scripts\bootstrap.bundle.min.js" />

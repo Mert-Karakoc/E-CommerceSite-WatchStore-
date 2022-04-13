@@ -111,69 +111,6 @@ namespace SaatSatış.BLL
                 filteredWatches.AddRange(removedList);
             }
              return filteredWatches;
-            
         }
-        public List<WatchVM> FilterByColor(string color)
-        {
-            List<WatchVM> list = new List<WatchVM>();
-            foreach (var watch in db.Watches.Where(w => w.Color.ColorName == color))
-            {
-                WatchVM vm = new WatchVM();
-                vm.Watch = watch;
-                vm.Pictures = watch.Pictures;
-                list.Add(vm);
-            }
-            return list;
-        }
-        public List<WatchVM> FilterByStrapType(string strapType)
-        {
-            List<WatchVM> list = new List<WatchVM>();
-            foreach (var watch in db.Watches.Where(w => w.StrapType.StrapTypeName == strapType))
-            {
-                WatchVM vm = new WatchVM();
-                vm.Watch = watch;
-                vm.Pictures = watch.Pictures;
-                list.Add(vm);
-            }
-            return list;
-        }
-        public List<WatchVM> FilterByCaseShape(string caseShape)
-        {
-            List<WatchVM> list = new List<WatchVM>();
-            foreach (var watch in db.Watches.Where(w => w.CaseShape.CaseShapeName == caseShape))
-            {
-                WatchVM vm = new WatchVM();
-                vm.Watch = watch;
-                vm.Pictures = watch.Pictures;
-                list.Add(vm);
-            }
-            return list;
-        }
-        public List<WatchVM> FilterByGlassType(string glassType)
-        {
-            List<WatchVM> list = new List<WatchVM>();
-            foreach (var watch in db.Watches.Where(w => w.GlassType.GlassTypeName == glassType))
-            {
-                WatchVM vm = new WatchVM();
-                vm.Watch = watch;
-                vm.Pictures = watch.Pictures;
-                list.Add(vm);
-            }
-            return list;
-        }
-        public List<WatchVM> FilterByTechnology(string technology)
-        {
-            List<WatchVM> list = new List<WatchVM>();
-            foreach (var watch in db.Watches.Where(w => w.Technology.TechnologyName == technology))
-            {
-                WatchVM vm = new WatchVM();
-                vm.Watch = watch;
-                vm.Pictures = watch.Pictures;
-                list.Add(vm);
-            }
-            return list;
-        }
-        
-        
     }
 }
